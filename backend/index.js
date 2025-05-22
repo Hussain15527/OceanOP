@@ -1,11 +1,12 @@
 const express= require('express');
-
+const cors=require("cors")
 
 const app=express();
+const router=require("./routes/index");
 
-app.get("/",(req,res)=>{
-    res.send("hello this is the backend server is it running?")
-})
+app.use(cors())
+
+app.get("/",require("./routes/index"));
 
 app.listen(5000,()=>{
     console.log("listening to port 5000");
